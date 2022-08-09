@@ -13,7 +13,7 @@ public class bothevenorodd
         n2 = Convert.ToInt32(Console.ReadLine());
 
 
-        //bothEven = ((n1%2!=0) || (n1%2!=0))? false:true;
+        
         BothEvenorOdd = ((n1 % 2 == 0)
             && (n2 % 2 == 0)) ? true : false;
 
