@@ -5,17 +5,17 @@ public class bothevenorodd
     {
 
 
-        int n1, n2;
+        int num1, num2;
         bool BothEvenorOdd;
         Console.Write("Enter First number: ");
-        n1 = Convert.ToInt32(Console.ReadLine());
+        num1 = Convert.ToInt32(Console.ReadLine());
         Console.Write("Enter Second number: ");
-        n2 = Convert.ToInt32(Console.ReadLine());
+        num2 = Convert.ToInt32(Console.ReadLine());
 
 
         
-        BothEvenorOdd = ((n1 % 2 == 0)
-            && (n2 % 2 == 0)) ? true : false;
+        BothEvenorOdd = ((num1 % 2 == 0)
+            && (num2 % 2 == 0)) ? true : false;
 
         if(BothEvenorOdd)
         {
