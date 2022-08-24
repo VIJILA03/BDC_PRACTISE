@@ -15,7 +15,7 @@ namespace assignment1;
         cmd.CommandType = System.Data.CommandType.StoredProcedure;
         sqlconn.Open();
 
-        for (int i = 0; i <2; i++)
+        for (int i = 0; i <10; i++)
         {
             cmd.Parameters.Clear();
 
@@ -51,10 +51,10 @@ namespace assignment1;
         Console.WriteLine("executed successfully");
         cmd.Parameters.Clear();
         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        cmd.CommandText
+        cmd.CommandText = "fetchPassportInformation";
 
-           
-         SqlDataReader dr = cmd.ExecuteReader();
+
+        SqlDataReader dr = cmd.ExecuteReader();
         while (dr.Read())
         {
         Console.WriteLine(dr[0].ToString()+" " + dr[1].ToString()+" "+ dr[2].ToString()+" "+ dr[3].ToString() + " " + dr[4].ToString() + " " + dr[5].ToString());
