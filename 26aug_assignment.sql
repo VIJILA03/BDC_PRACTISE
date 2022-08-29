@@ -136,7 +136,37 @@ select dbo.avgsalesvalue('hyderabad') as averagesalesvalue
 averagesalesvalue
 208*/
 
+CREATE TYPE salesval AS TABLE(
+	salesval int
+)
+GO
 
+
+create or alter function salesvalue(@region varchar(30)) 
+returns int as
+begin
+declare @avg int 
+declare @salesval as salesval
+insert into @salesval
+       select ProductQuantity* unitprice  from sales where region=@region;
+	  select @avg=(select dbo.avgsalesvalue(@salesval))
+	  return @avg
+end
+go
+
+
+SELECT dbo.salesvalue('DELHI') as average
+go
+
+
+create or alter function avgsalesvalue(@salesval salesval READONLY) 
+returns int as
+begin
+declare @avg int
+  select @avg=(select avg(salesval) from @salesval)
+  return @avg
+end
+go
 
 
 
