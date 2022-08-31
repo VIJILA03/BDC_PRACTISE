@@ -1,0 +1,18 @@
+﻿@page
+@model TempCheck.Pages.TempCheckModel
+@{
+ ViewData["Title"] = "TEMPERATURE CHECK";
+}
+@if(Model.hasinfo)
+{
+    <p>YOUR CHILD TEMPERATURE IS :@Model.temp</p>
+    <p>@Model.msg</p>
+    
+}
+<div class="Container">
+    <form method="post">
+        <label for="temp">Enter teperature</label> <br />
+        <input type="text" id="temp" name="Temperature" /><br />
+        <input type="submit" value="CHECK"/>
+    </form>
+</div>
