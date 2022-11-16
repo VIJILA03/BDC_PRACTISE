@@ -1,0 +1,56 @@
+﻿@page
+@model lms.Pages.checkuserbookModel
+@{
+}
+<h1>@ViewData["Title"]</h1>
+@if (Model.errorMsg.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>
+            @Model.errorMsg
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
+    </div>
+}
+<form method="post">
+ 
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Mail Id or User Name</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control" name="MailId" value="@Model.b.UserName">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Book Id</label>
+        <div class="col-sm-6">
+         
+            <input type="text" class="form-control" name="BookId" value="@Model.b.BookId">
+        </div>
+    </div>
+    <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <button class=" btn btn-primary" >Register</button>
+   
+        </div>
+     </div>
+
+  
+
+    @if (Model.successMsg.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>
+            @Model.successMsg
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
+        <a href="/changereturn?bid=@Model.b.BookId&returndate=@Model.b.LastDate">Change return date</a>
+      
+    </div>
+    
+      
+}
+
+</form>
+
+
+

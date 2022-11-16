@@ -1,0 +1,42 @@
+﻿@page
+@model lms.Pages.selectedbookModel
+@{
+     ViewData["title"] = "Selected BOOK LIST";
+}
+<h3>LIST OF BOOKS SELECTED BY YOU</h3>
+<div class="alert alert-danger text-center"><p>Return your books on or before your last date</p></div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>USER NAME</th>
+            <th>BOOK ID</th>
+            <th>BOOK NAME</th>
+            
+            <th>ISSUED DATE</th>
+            <th>RETURN DATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model.listofslbooks)
+        {
+            <tr>
+                <td>@book.name</td>
+                <td>@book.id</td>
+                <td>@book.bookname</td>
+                <td>@book.idatef</td>
+                <td>@book.rdatef</td>
+                 <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/userread?bid=@book.id">READ</a></td>             
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/userchangereturn?bid=@book.id">CHANGE RETURN DATE</a></td>
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="returnbookuser/?id=@book.id&issuedate=@book.idatef&returndate=@book.rdatef">RETURN BOOK</a></td>
+
+           </tr>
+        }
+    </tbody>
+</table>
+ <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <a class=" btn btn-primary"  href="/userpage">Go Back</a>
+   
+        </div>
+     </div>

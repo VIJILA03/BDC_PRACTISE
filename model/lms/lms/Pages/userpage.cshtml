@@ -1,0 +1,17 @@
+﻿@page
+@model lms.Pages.userpageModel
+@{
+     ViewData["title"] = "USER PAGE";
+}
+
+<div class="text-center">
+      <h>HELLO @Model.name</h>
+    <h1 class="display-4">Welcome to  Fort Boult Library</h1>
+    <p>Fort Boult is an old town that encourages everyone to read. People of all ages gather up every fixed day of a week, (children on Sundays, old people on Tuesdays, etc ) like a club and read out books that interest them and debate about it. They also encourage people to give books as gifts so that people have access to a lot of books. 
+</p>
+</div>
+<ul class="navbar-nav flex-grow-1">
+    <li><a class="nav-link text-dark" href="/accountinfo">Account Info</a></li>
+      <li><a class="nav-link text-dark" href="/bookuser">Book List</a></li>
+        <li><a class="nav-link text-dark" href="/selectedbook">Your Library</a></li>
+</ul>

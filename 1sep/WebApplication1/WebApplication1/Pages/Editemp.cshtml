@@ -1,0 +1,47 @@
+﻿@page
+@model WebApplication1.Pages.EditempModel
+@{
+    ViewData["title"] = "EDIT EMPLOYEE";
+}
+<br />
+<hr /><h1>NEW EMPLOYEE DETAILS</h1>
+@if(Model.ErrorMsg.Length>0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.ErrorMsg</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label="Close"></button>
+    </div>
+}
+<form method="post">
+    <input type="hidden" name="id" value="@Model.edemp.id">
+     <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">EMPLOYEE NAME</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Name" value="@Model.edemp.name">
+        </div>
+    </div>
+     <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">DESIGNATION</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Designation" value="@Model.edemp.des">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">BASE LOCATION</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="BaseLocation" value="@Model.edemp.loc">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">UPDATE</button>
+        </div>
+    </div>
+ @if(Model.SucceedMsg.Length>0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.SucceedMsg</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label="Close"></button>
+    </div>
+}
+</form>

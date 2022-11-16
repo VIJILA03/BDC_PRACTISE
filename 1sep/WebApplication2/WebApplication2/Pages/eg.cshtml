@@ -1,0 +1,34 @@
+﻿@page
+@model WebApplication2.Pages.egModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers;
+@{
+}
+ 
+            <form asp-page="eg"  method="post">  
+                <h4>Use a local account to log in.</h4>  
+                <hr />  
+                <div asp-validation-summary="All" class="text-danger"></div>  
+                <div class="form-group">  
+                    <label asp-for="crtstd.name"></label>  
+                    <input asp-for="crtstd.name" class="form-control" />  
+                    <span asp-validation-for="crtstd.name" class="text-danger"></span>  
+                </div>  
+                <div class="form-group">  
+                    <label asp-for="crtstd.mark"></label>  
+                    <input asp-for="crtstd.mark" class="form-control" />  
+                    <span asp-validation-for="crtstd.mark" class="text-danger"></span>  
+                </div>  
+                 <div class="form-group">  
+                    <label asp-for="crtstd.course"></label>  
+                    <input asp-for="crtstd.course" class="form-control" />  
+                    <span asp-validation-for="crtstd.course" class="text-danger"></span>  
+                </div> 
+                  
+                
+                <div class="form-group">  
+                    <button type="submit" class="btn btn-default">Log in</button>  
+                </div>  
+                
+            </form>  
+
+

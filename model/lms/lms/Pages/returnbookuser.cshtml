@@ -1,0 +1,43 @@
+﻿@page
+@using System.Data.SqlClient;
+@model lms.Pages.returnbookuserModel
+@{
+    ViewData["title"] = "USER RETURN BOOK";
+}
+@{
+
+    try
+    {
+
+
+        int id = Convert.ToInt32(Request.Query["id"]);
+
+        DateTime issuedate = Convert.ToDateTime(Request.Query["issuedate"]);
+        Console.WriteLine(issuedate);
+         string formatted = issuedate.ToString("yyyy/MM/dd HH:mm:ss");
+        DateTime returndate = Convert.ToDateTime(Request.Query["returndate"]);
+         string formatted1 = returndate.ToString("yyyy/MM/dd HH:mm:ss");
+        string connectionstring = "Data Source=LAPTOP-PH4JPVTP;Initial Catalog=LMS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        SqlConnection sqlconn = new SqlConnection(connectionstring);
+        sqlconn.Open();
+        SqlCommand cmd = new SqlCommand("BookreturnInfo", sqlconn);
+        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        cmd.Parameters.Add("@username", System.Data.SqlDbType.VarChar).Value = Model.name1;
+        cmd.Parameters.AddWithValue("@id", id);
+        Console.WriteLine(id);       
+        cmd.Parameters.AddWithValue("@issuedate", formatted);
+        Console.WriteLine(issuedate);
+        cmd.Parameters.AddWithValue("@returndate", formatted1);
+        cmd.ExecuteNonQuery();
+        /*SqlDataReader dr = cmd.ExecuteReader();
+        
+        dr.Close();*/
+
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
+   Response.Redirect("/selectedbook");
+}
+

@@ -1,0 +1,65 @@
+﻿@page
+@model lms.Pages.changereturnModel
+@{
+    ViewData["title"] = "CHANGE RETURN DATE";
+}
+
+<h3>Your Book Booked Successfully!!</h3>
+<h2>Do want to Change Your Return date??</h2>
+
+
+@if (Model.errorMsg.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role="alert">
+        <strong>
+            @Model.errorMsg
+        </strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+<form method="post">
+    <input type="hidden" name="bid" value="@Model.b.bid">
+
+    <!--<div class="row mb-3">
+        <label class="col-sm-3 col-form-label">RETURNDATE</label>
+      <div class="col-sm-6">
+          <input type="datetime-local" class="form-control" name="returndate" value="@Model.b.returndate">
+    </div>
+    </div>-->
+    @if (@Model.count == 14)
+    {
+        <div class="row mb-3">
+            <div class="offset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">CHANGE RETURN DATE!!</button>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row mb-3">
+            <div class="offset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-secondary disabled">CHANGE RETURN DATE!!</button>
+
+            </div>
+        </div>
+        <p>Sorry you cannot change your return date again!</p>
+    }
+
+</form>
+@if (Model.successMsg.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role="alert">
+        <strong>
+            @Model.successMsg
+        </strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+<div class="row mb-3">
+    <div class="offset-sm-3 col-sm-3 d-grid">
+        <a class=" btn btn-primary" href="/bookuser">Go Back</a>
+
+    </div>
+</div>
+
+

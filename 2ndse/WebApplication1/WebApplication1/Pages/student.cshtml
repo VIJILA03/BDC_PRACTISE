@@ -1,0 +1,30 @@
+﻿@page
+@model WebApplication1.Pages.studentModel
+@{
+    ViewData["Title"] = "Student result";
+}
+<h1>STUDENT LIST</h1>
+<a class='btn btn-primary' href='/createstd'>Add New Student</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STUDENT NAME</th>
+            <th>MARKS</th>
+            <th>SUBJECT</th>
+           
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach(var student in Model.listofstudents)
+        {
+            <tr>
+                <td>@student.name</td>
+                <td>@student.mark</td>
+                <td>@student.course</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+

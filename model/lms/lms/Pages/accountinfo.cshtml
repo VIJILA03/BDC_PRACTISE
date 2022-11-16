@@ -1,0 +1,46 @@
+﻿@page
+@model lms.Pages.accountinfoModel
+@using  Microsoft.AspNetCore.Identity;
+@{
+     ViewData["title"] = "ACCOUNT INFO";
+}
+
+<h1>ACCOUNT INFO</h1>
+
+<h1>hello @Model.name1</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Your ID</th>
+                <th>Your User Name</th>
+                 <th>Your First Name</th>
+                  <th>Your Last Name</th>
+                   <th>Your Phone Number</th>
+               
+            </tr>
+            
+        </thead>
+        <tbody>
+            @foreach(var det in Model.listofdet)
+        {
+                <tr>
+                    <td>@det.id</td>
+                    <td>@det.name</td>
+                      <td>@det.fname</td>
+                        <td>@det.lname</td>
+                          <td>@det.phn</td>
+                    
+                    
+                    
+               </tr>
+        }
+        </tbody>
+    </table>
+     <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <a class=" btn btn-primary"  href="/userpage">Go Back</a>
+   
+        </div>
+     </div>
+
+  

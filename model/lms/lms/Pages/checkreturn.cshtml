@@ -1,0 +1,46 @@
+﻿@page
+@model lms.Pages.checkreturnModel
+@{
+     ViewData["title"] = "CHECKING RETURN BOOK";
+}
+
+<h1>LIST OF BOOKS</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>USER NAME</th>
+            <th>BOOK ID</th>
+            <th>ISSUE DATE</th>
+            <th>LAST DATE</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model.listofissue)
+        {
+            <tr>
+                <td>@book.username</td>
+                <td>@book.bookid</td>
+                <td>@book.idatef</td>
+                <td>@book.rdatef</td>
+                
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/returnbook?username=@book.username&id=@book.bookid&issuedate=@book.idatef&returndate=@book.rdatef">Return</a></td>
+              
+
+           </tr>
+           
+        }
+        <tr class="row justify-content-center">
+                <td ><p>The list is ended</p></td>
+           </tr>
+    </tbody>
+</table>
+ <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <a class=" btn btn-primary"  href="/admin">Go Back</a>
+   
+        </div>
+     </div>
+

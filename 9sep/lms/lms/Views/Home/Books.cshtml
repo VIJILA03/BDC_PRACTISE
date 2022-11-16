@@ -1,0 +1,28 @@
+﻿@page
+@model lms.Views.Home.BooksModel
+@{
+    ViewData["Title"] = "BOOK details";
+}
+
+<p>This is the BOOK details page</p>
+<h1>BOOK list</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>TOTAL NO OF TICKETS AVAILABLE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.ListOfBooks)
+        {
+            <tr>
+                <td style="color:brown" >@employee.id</td>
+                <td style="color:brown" >@employee.name</td>
+                <td>@employee.availability</td>
+                <td><a class="btn btn-PRIMARY btn-sm" href="/deleteemp?id=@employee.id">Check Availability</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

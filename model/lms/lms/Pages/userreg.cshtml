@@ -1,0 +1,64 @@
+﻿@page
+@model lms.Pages.userregModel
+@{
+
+    ViewData["Title"] = "User Registration";
+}
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+       <div class="col-sm-6 col-md-12 col-lg-4">
+            <h1>Register</h1>
+           <form method="post" >
+               <div asp-validation-summary="All" class="text-danger"></div>
+               <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label" asp-for="Model.FirstName"> </label>
+                   <div class="col-sm-6">
+                       <input type="text" asp-for="Model.FirstName"class="form-control" name="FirstName" value="">
+                       <span asp-validation-for="Model.FirstName" class="text-danger"></span>
+                   </div>
+                </div>
+                <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label" asp-for="Model.LastName"> </label>
+                   <div class="col-sm-6">
+                       <input type="text" asp-for="Model.LastName"class="form-control" name="LastName" value="">
+                       <span asp-validation-for="Model.LastName" class="text-danger"></span>
+                   </div>
+                </div>
+                <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label" asp-for="Model.Email"> </label>
+                   <div class="col-sm-6">
+                       <input type="text" asp-for="Model.Email"class="form-control" name="Email" value="">
+                       <span asp-validation-for="Model.Email" class="text-danger"></span>
+                   </div>
+                </div>
+                 <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label" asp-for="Model.PhoneNumber"> </label>
+                   <div class="col-sm-6">
+                       <input type="text" asp-for="Model.PhoneNumber"class="form-control" name="PhoneNumber" value="">
+                       <span asp-validation-for="Model.PhoneNumber" class="text-danger"></span>
+                   </div>
+                </div>                               
+                <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label" asp-for="Model.Password"> </label>
+                   <div class="col-sm-6">
+                       <input type="password" asp-for="Model.Password"class="form-control" name="Password" value="">
+                       <span asp-validation-for="Model.Password"class="text-danger"></span>
+                   </div>
+                </div>
+                <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label" asp-for="Model.ConfirmPassword"> </label>
+                   <div class="col-sm-6">
+                       <input type="password" asp-for="Model.ConfirmPassword"class="form-control" name="ConfirmPassword" value="">
+                       <span asp-validation-for="Model.ConfirmPassword" class="text-danger"></span>
+                   </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div> 
+    </div>
+</div>
+

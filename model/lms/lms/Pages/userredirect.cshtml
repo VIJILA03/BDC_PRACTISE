@@ -1,0 +1,35 @@
+﻿@page
+@model lms.Pages.userredirectModel
+@{
+     ViewData["title"] = "USER DIRECT";
+}
+<h1>HELLO USER</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>BOOK ID</th>
+            <th>BOOK NAME</th>
+            <th>TOTAL NUMBER OF TICKETS</th>
+           
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach(var book in Model.listofbooks)
+        {
+            <tr>
+                <td>@book.id</td>
+                <td>@book.name</td>
+                <td>@book.author</td>
+                <td>@book.publication</td>
+                <td>@book.copies</td>
+
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/editbook?id=@book.id">EDIT</a></td>
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/delbook?id=@book.id">DELETE</a></td>
+
+               
+                
+           </tr>
+        }
+    </tbody>
+</table>

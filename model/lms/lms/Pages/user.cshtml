@@ -1,0 +1,45 @@
+﻿@page
+@model lms.Pages.userModel
+@{
+     ViewData["title"] = "USER LIST";
+}
+
+<h1>LIST OF USERS</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>USER ID</th>
+             <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+             <th>USER NAME</th>
+              <th>EMAIL</th>
+               <th>PHONE NUMBER</th>
+           
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach(var buser in Model.listofusers)
+        {
+            <tr>
+                <td>@buser.id</td>
+                <td>@buser.fname</td>
+                <td>@buser.lname</td>
+                <td>@buser.name</td>
+                <td>@buser.email</td>
+                <td>@buser.phone</td>
+                
+               
+                
+           </tr>
+        }
+    </tbody>
+</table>
+ <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <a class=" btn btn-primary"  href="/admin">Go Back</a>
+   
+        </div>
+     </div>

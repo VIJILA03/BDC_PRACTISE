@@ -1,0 +1,61 @@
+﻿@page
+@model lms.Pages.checkuserModel
+@using System.Data.SqlClient
+@{
+     ViewData["title"] = "USER CHECK";
+}
+@{
+       int count = 0;
+            try
+            {
+                string connectionstring = "Data Source=LAPTOP-PH4JPVTP;Initial Catalog=demo;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                SqlConnection sqlconn = new SqlConnection(connectionstring);
+
+                sqlconn.Open();
+
+                string QueryString = "select count(UserName) from BookIssue where UserName=@username";
+
+                SqlCommand cmd = new SqlCommand(QueryString, sqlconn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    
+
+                   count = reader.GetInt32(0);
+                    Console.WriteLine(count);
+                
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+    <table >
+        <thead>
+            <tr>
+                <th>Eligibility Report</th>
+               
+               
+            </tr>
+            
+        </thead>
+        <tbody>
+         
+                <tr>
+                    
+                    <td>@if (@count >= 3)
+                    {
+                          <a class="btn btn-secondary  " name="btncheck" href="/BookIssue"> Book </a>
+    
+                    }
+                    else{
+                        <p>Sorry You are not eligible because you are having 3 books alread</p>}</td>
+
+                   
+                    
+               </tr>
+            
+        </tbody>
+    </table>
+}

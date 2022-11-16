@@ -1,0 +1,37 @@
+﻿@page
+@model lms.Pages.adminloginModel
+@{
+    ViewData["Title"] = "Admin Login";
+}
+<h1>ADMIN LOGIN PAGE</h1>
+<form method="post" >
+ 
+<div class="row mb-3">
+        <label class="col-sm-3 col-form-label">UserName</label>
+        <div class="col-sm-6">
+            <input type="" class="form-control" name="UserName" value="">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Password</label>
+        <div class="col-sm-6">
+            <input type="password" class="form-control" name="Password" value="">
+        </div>
+    </div>
+
+ <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    @if (Model.Msg.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>
+            @Model.Msg
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
+    </div>
+}
+</form>

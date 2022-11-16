@@ -1,0 +1,48 @@
+﻿@page
+@model lms.Pages.userloginModel
+@{
+     ViewData["title"] = "USER LOGIN";
+}
+@if(Model.ErrorMsg.Length>0)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.ErrorMsg</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label="Close"></button>
+    </div>
+}
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-6 col-md-12">
+            <h1>Login</h1>
+            <form method="post">
+                 <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label text-dark" asp-for="Model.Email"> </label>
+                   <div class="col-sm-6">
+                       <input type="text" asp-for="Model.Email" class="form-control"/>
+                       <span asp-validation-for="Model.Email" class="text-danger"></span>
+                   </div>
+                </div>
+                <div class="row mb-3">
+                   <label class="col-sm-3 col-form-label text-dark" asp-for="Model.Password"> </label>
+                   <div class="col-sm-6">
+                       <input type="password" asp-for="Model.Password" class="form-control"/>
+                       <span asp-validation-for="Model.Password" class="text-danger"></span>
+                   </div>
+                </div>
+                
+                <div class="row mb-3">
+
+                    <input type="checkbox" asp-for="Model.Rememberme" class="form-check-input">
+                  <div class="col-sm-6">
+                    <label class="form-check-label text-dark" asp-for="Model.Rememberme">Remember me?</label>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <button type="submit"  class="btn btn-primary">LOGIN</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

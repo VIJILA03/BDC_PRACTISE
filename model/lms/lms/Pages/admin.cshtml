@@ -1,0 +1,29 @@
+﻿@page
+@model lms.Pages.adminModel
+@{
+     ViewData["title"] = "ADMIN PAGE";
+}
+<div class="text-center">
+      <h2>Hello Admin</h2>
+    <h1 class="display-4">Welcome to  Fort Boult Library</h1>
+    <p>Fort Boult is an old town that encourages everyone to read. People of all ages gather up every fixed day of a week, (children on Sundays, old people on Tuesdays, etc ) like a club and read out books that interest them and debate about it. They also encourage people to give books as gifts so that people have access to a lot of books. 
+</p>
+</div>
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+    <li class="nav-item dropdown">
+        <a class="nav-link text-dark dropdown-toggle" href="#" data-bs-toggle="dropdown">  BOOKS </a>
+        <ul class="dropdown-menu">
+
+            <li><a class="nav-link text-dark" asp-area="" asp-page="/addbook">ADD NEW BOOK</a></li>
+            <li><a class="nav-link text-dark" asp-area="" asp-page="/books">EDIT/DELETE BOOK</a></li>
+            <li><a class="nav-link text-dark" asp-area="" asp-page="/books">BOOK LIST</a></li>
+        
+        </ul>
+    </li>
+    <li><a class="nav-link text-dark" asp-area="" asp-page="/user">USER LIST</a></li>
+    <li><a class="nav-link text-dark" asp-area="" asp-page="/IssuedBook">ISSUED BOOK LIST</a></li>
+    <li><a class="nav-link text-dark" asp-area="" asp-page="/checkreturn">BOOKS TO BE RETURNED</a></li>
+</ul>
+
+
+

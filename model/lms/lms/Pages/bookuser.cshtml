@@ -1,0 +1,51 @@
+﻿@page
+@model lms.Pages.bookuserModel
+@{
+     ViewData["title"] = "USER BOOK LIST";
+}
+<h1>LIST OF BOOKS</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>BOOK ID</th>
+            <th>BOOK NAME</th>
+            <th>AUTHOR</th>
+            <th>PUBLICATION</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model.listofbooks)
+        {
+            <tr>
+                <td>@book.id</td>
+                <td>@book.name</td>
+                <td>@book.author</td>
+                <td>@book.publication</td>
+                
+                @if (@book.copies == 0)
+                {
+                <td><a class="btn btn-outline-secondary disabled btn-sm" name="btncheck" href="/checkbook?id=@book.id">SELECT</a></td>
+                <td><a class="btn btn-outline-secondary btn-sm" name="btncheck" href="/mindate?id=@book.id">CHECK MIN WAIT DATE</a></td>
+
+                }
+                else
+                {
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/BookIssue?id=@book.id">SELECT</a></td>
+               
+
+                }
+           </tr>
+        }
+    </tbody>
+</table>
+ <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <a class=" btn btn-primary"  href="/userpage">Go Back</a>
+   
+        </div>
+     </div>
+
+

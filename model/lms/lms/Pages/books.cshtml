@@ -1,0 +1,40 @@
+﻿@page
+@model lms.Pages.booksModel
+@{
+     ViewData["title"] = "BOOK LIST";
+}
+<h1>LIST OF BOOKS</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>BOOK ID</th>
+            <th>BOOK NAME</th>
+            <th>AUTHOR</th>
+            <th>PUBLICATION</th>
+            <th>AVAILABLE COPIES</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model.listofbooks)
+        {
+            <tr>
+                <td>@book.id</td>
+                <td>@book.name</td>
+                <td>@book.author</td>
+                <td>@book.publication</td>
+                <td>@book.copies</td>
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/editbook?id=@book.id">EDIT</a></td>
+                <td><a class="btn btn-outline-primary btn-sm" name="btncheck" href="/delbook?id=@book.id">DELETE</a></td>
+
+           </tr>
+        }
+    </tbody>
+</table>
+ <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <a class=" btn btn-primary"  href="/admin">Go Back</a>
+   
+        </div>
+     </div>

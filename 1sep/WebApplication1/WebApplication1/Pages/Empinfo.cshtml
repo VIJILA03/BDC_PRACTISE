@@ -1,0 +1,39 @@
+﻿@page
+@model WebApplication1.Pages.EmpinfoModel
+@{
+
+    ViewData["Title"] = "Employee details";
+}
+<a class='btn btn-primary' href='/createemp'>Add New Employee</a>
+
+<p>This is the employee details page</p>
+<h1>Employee list</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DESIGNATION</th>
+            <th>DATE OF BIRTH</th>
+            <th>DATE OF JOINING</th>
+            <th>BASE OFFICE</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model.listofemployees)
+        {
+            <tr>
+                <td style="color:brown" >@employee.id</td>
+                <td style="color:brown" >@employee.name</td>
+                <td>@employee.des</td>
+                <td>@employee.dobdate</td>
+                <td>@employee.dojdate</td>
+                <td>@employee.loc</td>
+                <td><a class="btn btn-primary btn-sm" href="/Editemp?id=@employee.id">UPDATE</a></td>
+                <td><a class="btn btn-danger btn-sm" href="/deleteemp?id=@employee.id">DELETE</a></td>
+            </tr>
+        }
+    </tbody>
+    </table>
+
+

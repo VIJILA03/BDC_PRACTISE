@@ -1,0 +1,34 @@
+﻿@page
+@model lms.Pages.delbookModel
+@using System.Data.SqlClient;
+@{
+    ViewData["Title"] = "DELETE BOOK";
+}
+<h1>DELETE BOOK</h1>
+
+@{
+
+    try
+    {
+        int id = Convert.ToInt32(Request.Query["id"]);
+        string connectionstring = "Data Source=LAPTOP-PH4JPVTP;Initial Catalog=LMS;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        SqlConnection sqlconn = new SqlConnection(connectionstring);
+        sqlconn.Open();
+        string QueryString = "delete from BOOKS  where BookId=@id";
+
+        using(SqlCommand cmd=new SqlCommand(QueryString,sqlconn))
+        {
+
+            Console.WriteLine(id);
+            cmd.Parameters.AddWithValue("@id", id);
+            Console.WriteLine(QueryString);
+            cmd.ExecuteNonQuery();
+
+        }
+    }
+    catch(Exception ex)
+    {
+
+    }
+    Response.Redirect("/books");
+}

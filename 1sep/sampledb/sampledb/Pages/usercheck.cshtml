@@ -1,0 +1,37 @@
+﻿@page
+@model sampledb.Pages.usercheckModel
+@{
+}
+<h1>BOOK LIST</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>user ID</th>
+            <th>user NAME</th>
+            <th>books taken</th>
+           
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach(var student in Model.listofusers)
+        {
+            <tr>
+                <td>@student.id</td>
+                <td>@student.name</td>
+                <td>@student.bookstaken</td>
+                <td>@if (@student.bookstaken >= 3)
+                    {
+                      <a class="btn btn-secondary  " name="btncheck" href="/"> check eligible date </a>
+    
+                    }
+                    else{
+                    <a class="btn btn-outline-primary btn-sm" name="btncheck" href="/student">check available BOOK</a>}</td>
+
+               
+                
+           </tr>
+        }
+    </tbody>
+</table>

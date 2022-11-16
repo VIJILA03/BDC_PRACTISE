@@ -1,0 +1,92 @@
+﻿@page
+
+@model lms.Pages.BookIssueModel
+@{
+    ViewData["Title"] = "BookIssue";
+}
+<h1>@ViewData["Title"]</h1>
+@if (Model.errorMsg.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>
+            @Model.errorMsg
+        </strong>
+        <button type="button" class="btn-close" data-bs-dismiss='alert' aria-label="Close"></button>
+    </div>
+}
+
+  
+<form method="post">
+ 
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Mail Id or User Name</label>
+        <div class="col-sm-6">
+            <input type="email" class="form-control" name="MailId" value="@Model.name1">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Book Id</label>
+        <div class="col-sm-6">
+         
+            <input type="text" class="form-control" name="BookId" value="@Model.id">
+        </div>
+    </div>
+    @if(@Model.count2==1)
+    {
+       <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+         <p>You already added to your library </p>
+         <button class=" btn btn-secondary disabled" >Add to Library</button>
+        </div>
+     </div> 
+    }
+    else if(@Model.count<3&&@Model.count1==0)
+    {
+       <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <button class=" btn btn-primary" >Add to Library</button>
+   
+        </div>
+     </div> 
+    }
+    else if(@Model.count1==1){
+    <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <p>You have taken this book already</p>
+              <button class=" btn btn-secondary disabled" >Add to Library</button>
+   
+        </div>
+     </div>
+    }
+     else{
+    <div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <p>Sorry you have already exceeded the limit of 3 books</p>
+              <button class=" btn btn-secondary disabled" >Add to Library</button>
+   
+        </div>
+     </div>
+    }
+   
+
+</form>
+@if (Model.successMsg.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role="alert">
+        <strong>
+            @Model.successMsg
+        </strong>
+        <a class="btn btn-outline-primary" href="/changereturn?bid=@Model.id">Change return date</a>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+   
+<div class="row mb-3"> 
+        <div class="offset-sm-3 col-sm-3 d-grid">
+              <a class=" btn btn-primary"  href="/bookuser">Go Back</a>
+   
+        </div>
+     </div>
+
+
+

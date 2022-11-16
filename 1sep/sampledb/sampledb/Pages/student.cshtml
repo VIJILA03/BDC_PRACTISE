@@ -1,0 +1,37 @@
+﻿@page
+@model sampledb.Pages.studentModel
+@{
+}
+<h1>BOOK LIST</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>BOOK ID</th>
+            <th>BOOK NAME</th>
+            <th>TOTAL NUMBER OF TICKETS</th>
+           
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach(var student in Model.listofstudents)
+        {
+            <tr>
+                <td>@student.id</td>
+                <td>@student.name</td>
+                <td>@student.availability</td>
+                <td>@if (@student.availability == 0)
+                    {
+                      <a class="btn btn-secondary disabled " name="btncheck" href="/checkbook?id=@student.id" >BOOKING NOT ALLOWED</a>
+    
+                    }
+                    else{
+                    <a class="btn btn-outline-primary btn-sm" name="btncheck" href="/checkbook?id=@student.id&availability=@student.availability">BOOK</a>}</td>
+
+               
+                
+           </tr>
+        }
+    </tbody>
+</table>
